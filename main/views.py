@@ -29,9 +29,7 @@ def pelicula_por_actor(request):
     with ix.searcher() as searcher:
         actor = "'" + actores + "'"
         query = QueryParser("actores", ix.schema).parse(actor)
-        print(query)
         totalpeliculas =  searcher.search(query)
-        print(totalpeliculas)
         for peli in totalpeliculas:
             peliculas.append(peli)
         return render(request, 'peliculasPorActor.html', {'formulario':formulario, 'peliculas':peliculas, 'actores':actores})
@@ -52,9 +50,7 @@ def pelicula_por_genero(request):
     with ix.searcher() as searcher:
         entry = "'" + genero + "'"
         query = QueryParser("genero", ix.schema).parse(entry)
-        print(query)
         totalpeliculas = searcher.search(query, limit=20)
-        print(totalpeliculas)
         for peli in totalpeliculas:
             peliculas.append(peli)
         return render(request, 'peliculasPorGenero.html', {'formulario':formulario, 'peliculas':peliculas, 'genero':genero})
