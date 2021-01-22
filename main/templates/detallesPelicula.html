@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block encabezado %}
+
+<style>
+.left{
+    float:left;
+}
+.right{
+    float: right;
+    margin-left: 40px;
+}
+.block {
+    text-align: center;
+    }       
+
+.b {
+    padding: 50px;
+    display: inline-block;
+    
+    } 
+</style>
+
+<br>
+<center><h1>{{p.titulo}}</h1></center>
+
+{% endblock %}
+
+{% block contenido %} 
+        <div class="block">
+        <div class="b" style="float:left;">
+            <img class="img-thumbnail"width="450px" height="750px"src="{{p.portada}}">
+                </div>
+        <div class="b" style="float:left;">
+            <h4>Reparto</h4>
+                {% for actor in p.actores.all %}
+        
+                <a href="/detallesActor/{{actor.id}}"><img class="img-thumbnail" width="150px" height="300px" src="{{actor.foto}}"></a>
+                <h5>{{ actor.nombre }}</h5>
+                {% endfor %}
+            </div>
+            <div class="b" style="float: right;">
+            
+            </div>
+        </div>
+        <br><br>
+        <h4>Sinopsis</h4>
+        <p>{{p.sinopsis}}</p>
+        <h6>Duración: {{p.duracion}}</h6> 
+        <a href="{{p.linkPelicula}}">Ver más información en TMDB</a>
+        <br><br>
+        <h4>Géneros</h4>
+            {% for genero in p.generos.all %}
+                <h6>{{ genero }}</h6>
+                {% endfor %}
+    
+{% endblock %}

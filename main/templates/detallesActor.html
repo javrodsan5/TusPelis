@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block encabezado %} 
+<br>
+<center><h1>{{actor.nombre}}</h1></center>
+
+{% endblock %}
+
+{% block contenido %} 
+    <br>
+    <center>
+    <img class="img-thumbnail" width="350px" height="450px" src="{{actor.foto}}">
+    
+            <h5></h5>
+            <h5>{{actor.fechaNacimiento}}</h5>
+            <h5>{{actor.lugarNacimiento}}</h5>
+            <h5>Biografía:</h5>
+            <p>{{actor.biografia}}</p>
+            <a href="{{actor.linkActor}}">Ver más información en TMDB</a>
+
+    </center>
+{% endblock %}

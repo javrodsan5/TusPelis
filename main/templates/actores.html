@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block encabezado %}
+
+<style>.block {
+    text-align: center;
+    }       
+
+.b {
+    padding: 50px;
+    display: inline-block;
+    }</style>
+<br>
+<center><h1>Actores</h1></center>
+
+{% endblock %}
+
+{% block contenido %} 
+
+    <div class="block">
+        {% for actor in actores %}
+        <div class="b">
+            <a href="/detallesActor/{{actor.id}}"><img class="img-thumbnail" width="300px" height="400px" src="{{actor.foto}}"></a>
+            <h3>{{actor.nombre}}</h3>             
+
+            </div>
+        {% endfor %}
+{% endblock %}
