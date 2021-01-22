@@ -202,7 +202,6 @@ def populateWhooshPeliculas():
     for pelicula in listaPeliculas:
         writer.update_document(idPelicula =numPeliculas, titulo=pelicula[0], portada=pelicula[1], sinopsis=pelicula[2], linkPelicula=pelicula[3], duracion=pelicula[4], actores = soloNombres(pelicula[5]), personal = soloNombres(pelicula[6]), genero=pelicula[7])
         numPeliculas+=1
-        print(numPeliculas)
     writer.commit()
     
     return numPeliculas
