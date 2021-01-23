@@ -198,13 +198,13 @@ def populateWhooshPeliculas():
     ix = create_in("Index", schema=schemPeliculas)
     writer = ix.writer()
     listaPeliculas = extraer_datos_peliculas()
-    numPeliculas=0
+    numPeliculas=1
     for pelicula in listaPeliculas:
         writer.update_document(idPelicula =numPeliculas, titulo=pelicula[0], portada=pelicula[1], sinopsis=pelicula[2], linkPelicula=pelicula[3], duracion=pelicula[4], actores = soloNombres(pelicula[5]), personal = soloNombres(pelicula[6]), genero=pelicula[7])
         numPeliculas+=1
     writer.commit()
     
-    return numPeliculas
+    return numPeliculas-1
 
            
 def cargaWhoosh(request):
