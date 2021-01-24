@@ -4,7 +4,6 @@ from main import views, populate
 
 urlpatterns = [
     path('', views.inicio),
-    path('aboutMe/', views.sobreMi),
     path('cargarBD/', populate.carga),
     path('cargarWhoosh/', populate.cargaWhoosh),
     path('peliculas/', views.list_peliculas),
