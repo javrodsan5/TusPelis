@@ -68,7 +68,7 @@ def detallesPelicula(request, id):
     return render(request, 'detallesPelicula.html', {'p':pelicula})
 
 def list_actores(request):
-    actores = Actor.objects.all().order_by('nombre')
+    actores = Actor.objects.all()
     return render(request, 'actores.html', {'actores':actores})
 
 def detallesActor(request, id):

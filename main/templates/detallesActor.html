@@ -1,22 +1,52 @@
 {% extends 'base.html' %}
 
-{% block encabezado %} 
+{% block encabezado %}
+
+<style>
+.left{
+    float:left;
+}
+.right{
+    float: right;
+    margin-left: 40px;
+}
+.block {
+    text-align: center;
+    }       
+
+.b {
+    padding: 50px;
+    display: inline-block;
+    
+    } 
+</style>
+
 <br>
 <center><h1>{{actor.nombre}}</h1></center>
 
 {% endblock %}
 
 {% block contenido %} 
-    <br>
-    <center>
-    <img class="img-thumbnail" width="350px" height="450px" src="{{actor.foto}}">
+        <div class="block">
+        <div class="b" style="float:left;">
+            <img class="img-thumbnail"width="450px" height="750px"src="{{actor.foto}}">
+                </div>
+        <div class="b" style="float:left;">
+            <h4>Fecha de nacimiento</h4>
+                <p>{{actor.fechaNacimiento}}</p>
+                <br>
+                <h4>Lugar de nacimiento</h4>
+                <p>{{actor.lugarNacimiento}}</p>
+            </div>
+            <div class="b" style="float: right;">
+            
+            </div>
+        </div>
+        <br><br>
+        <h4>Biografía</h4>
+        <p>{{actor.biografia}}</p>
+        
+        <br><br>
+        <a href="{{actor.linkActor}}">Ver más información de {{actor.nombre}} en TMDB</a> 
     
-            <h5></h5>
-            <h5>{{actor.fechaNacimiento}}</h5>
-            <h5>{{actor.lugarNacimiento}}</h5>
-            <h5>Biografía:</h5>
-            <p>{{actor.biografia}}</p>
-            <a href="{{actor.linkActor}}">Ver más información en TMDB</a>
-
-    </center>
 {% endblock %}
