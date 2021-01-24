@@ -27,11 +27,12 @@
     <div class="block">
         {% for p in peliculas %}
         <div class="b">
-            <a href="/detallesPelicula/{{p.idPelicula}}"><img class="img-thumbnail"width="500px" height="800px"src="{{p.portada}}"></a>
-                <h3>{{p.titulo}}</h3>
-                <h3>{{p.actores}}</h3>                          
-                <h3>{{p.genero}}</h3>
-                <h6>Duración: {{p.duracion}}</h6>
+            <a href="/detallesPelicula/{{p.id}}"><img class="img-thumbnail"width="500px" height="800px"src="{{p.portada}}"></a>
+            <h3>{{p.titulo}}</h3>             
+            {% for genero in p.generos.all %}
+            <h5>{{ genero }}</h5>
+            {% endfor %}
+            <h6>Duración: {{p.duracion}}</h6>
 
             </div>
         {% endfor %}

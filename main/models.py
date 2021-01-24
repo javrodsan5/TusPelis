@@ -9,8 +9,6 @@ class Actor(models.Model):
     lugarNacimiento = models.TextField(verbose_name='Lugar de nacimiento')
     foto = models.ImageField(verbose_name='Foto')
     biografia = models.TextField(verbose_name='Biografia')
-
-
       
     def __str__(self):
         return self.nombre 

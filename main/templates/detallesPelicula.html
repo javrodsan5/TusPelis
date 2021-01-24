@@ -53,5 +53,10 @@
             {% for genero in p.generos.all %}
                 <h6>{{ genero }}</h6>
                 {% endfor %}
-    
+
+        <h4>Personal</h4>
+            {% for persona in p.personal.all %}
+                <h6>{{persona.puesto}} : {{persona}}</h6>
+                {% endfor %}
+        
 {% endblock %}

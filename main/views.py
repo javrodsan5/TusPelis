@@ -31,7 +31,9 @@ def pelicula_por_actor(request):
         query = QueryParser("actores", ix.schema).parse(actor)
         totalpeliculas =  searcher.search(query)
         for peli in totalpeliculas:
-            peliculas.append(peli)
+            pel= Pelicula.objects.get(titulo=peli['titulo'])
+            if pel not in peliculas:
+                peliculas.append(pel)
         return render(request, 'peliculasPorActor.html', {'formulario':formulario, 'peliculas':peliculas, 'actores':actores})
 
 def pelicula_por_genero(request):
@@ -52,9 +54,10 @@ def pelicula_por_genero(request):
         query = QueryParser("genero", ix.schema).parse(entry)
         totalpeliculas = searcher.search(query, limit=20)
         for peli in totalpeliculas:
-            peliculas.append(peli)
+            pel= Pelicula.objects.get(titulo=peli['titulo'])
+            if pel not in peliculas:
+                peliculas.append(pel)
         return render(request, 'peliculasPorGenero.html', {'formulario':formulario, 'peliculas':peliculas, 'genero':genero})
-
 
 def list_peliculas(request):
     peliculas = Pelicula.objects.all().order_by('titulo')
@@ -65,7 +68,7 @@ def detallesPelicula(request, id):
     return render(request, 'detallesPelicula.html', {'p':pelicula})
 
 def list_actores(request):
-    actores = Actor.objects.all().order_by('nombre')
+    actores = Actor.objects.all()
     return render(request, 'actores.html', {'actores':actores})
 
 def detallesActor(request, id):
