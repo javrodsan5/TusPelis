@@ -76,17 +76,8 @@ def detallesActor(request, id):
     return render(request, 'detallesActor.html', {'actor':actor})
 
 def list_generos(request):
-    generos = Generos.objects.all().order_by('nombre')
+    generos = Genero.objects.all().order_by('nombre')
     return render(request, 'generos.html', {'generos':generos})
-
-def list_personal(request):
-    personal = Personal.objects.all().order_by('nombre')
-    return render(request, 'personal.html', {'personal':personal})
 
 def inicio(request):
     return render(request, 'index.html')
-
-
-def sobreMi(request):
-
-    return render(request, 'sobreMi.html')
