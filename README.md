@@ -1,3 +1,3 @@
 # TusPelis
 
-Aplicación web basada en el framework de Django que usa las técnicas de Web Scraping y Whoosh para obtener e indexar datos sobre películas y sus actores.
+Web application for finding new films and information about actors using Web Scraping, Django and Whoosh.
